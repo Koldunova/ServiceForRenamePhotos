@@ -13,9 +13,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class MyXmlReader {
-    private static final String XML_CONFIG = "./src/by/vitebsk/energo/resource/config.xml";
+    private static final String XML_CONFIG = "./src/by/vitebsk/energo/koldunova/res/config.xml";
 
-    public static String readXmlConfig() {
+    public static String readXmlConfig(String nodeName) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
 
@@ -29,7 +29,7 @@ public class MyXmlReader {
             for (int j = 0; j < configDate.getLength(); j++) {
                 Node conf = configDate.item(j);
                 if (conf.getNodeType() != Node.TEXT_NODE) {
-                    if (conf.getNodeName().equals("ConnectionSender")) {
+                    if (conf.getNodeName().equals(nodeName)) {
                         return conf.getChildNodes().item(0).getTextContent();
                     }
                 }

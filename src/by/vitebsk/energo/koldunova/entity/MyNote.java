@@ -10,8 +10,8 @@ public class MyNote {
     public void setName(String name) {
         this.name = name;
     }
-    public int getNum() {
-        return num;
+    public String getNum() {
+        return String.valueOf(num);
     }
     public void setNum(int num) {
         this.num = num;
